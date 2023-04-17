@@ -57,10 +57,11 @@ async function run() {
 
          app.get('/products/:productId', async (req, res) => {
           const productId = req.params.productId;
-          const query = { _id: productId };
+          const query = { _id: (productId) };
           console.log(query);
-          const product = await productsCollection.findOne(query);
+          const product = await productsCollection.findOne(query.parse);
           res.json(product);
+          console.log(product);
       })
 
 
@@ -86,8 +87,8 @@ async function run() {
             const user = req.body;
             console.log('Hit the post api', user);
             const result = await usersCollection.insertOne(user);
-            console.log(result);
             res.json(result);
+            console.log(result);
         });
 
 

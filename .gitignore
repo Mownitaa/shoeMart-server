@@ -1,3 +1,4 @@
 node_modules
 .env
 shoemart-8c1b5-firebase-adminsdk.json
+.vercel
